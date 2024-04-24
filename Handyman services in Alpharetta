@@ -1,0 +1,57 @@
+class RemodelingService:
+    def __init__(self, name, location):
+        self.name = name
+        self.location = location
+        self.services = []
+
+    def add_service(self, service):
+        self.services.append(service)
+
+    def list_services(self):
+        print(f"\nServices Offered by {self.name} in {self.location}:")
+        for service in self.services:
+            print(f"- {service}")
+
+class ServiceDetail:
+    def __init__(self, category, description, features):
+        self.category = category
+        self.description = description
+        self.features = features
+    
+    def display_details(self):
+        print(f"\n{self.category} Details:")
+        print(self.description)
+        print("Key Features:")
+        for feature in self.features:
+            print(f"- {feature}")
+
+# Create an instance of RemodelingService
+just_fix_today = RemodelingService("JustFixToday", "Alpharetta, Georgia")
+
+# Adding different services
+kitchen_remodel = ServiceDetail(
+    "Kitchen Remodeling",
+    "Transform your kitchen into a functional and stylish space.",
+    ["New countertops and cabinets", "Upgraded appliances", "Improved layout"]
+)
+bathroom_remodel = ServiceDetail(
+    "Bathroom Remodeling",
+    "From spa-like retreats to simple fixture updates.",
+    ["New bathtubs and showers", "Updated flooring and tiles", "Heated floors"]
+)
+basement_remodel = ServiceDetail(
+    "Basement Remodeling",
+    "Turn your basement into a comfortable inviting space.",
+    ["Family room", "Home theater", "Gym or extra bedroom"]
+)
+
+# Add services to the JustFixToday instance
+just_fix_today.add_service(kitchen_remodel.category)
+just_fix_today.add_service(bathroom_remodel.category)
+just_fix_today.add_service(basement_remodel.category)
+
+# Display all services
+just_fix_today.list_services()
+
+# Display details of a specific service
+kitchen_remodel.display_details()
